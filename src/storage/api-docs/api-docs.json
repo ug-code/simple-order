@@ -1,0 +1,175 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "´Simpe Order Rest",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/order/add": {
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Add order",
+                "operationId": "250f6480a712e77496ee1a48dc84aa27",
+                "requestBody": {
+                    "description": "Pass order data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "customerId",
+                                    "total",
+                                    "items"
+                                ],
+                                "properties": {
+                                    "customerId": {
+                                        "type": "string",
+                                        "example": "1"
+                                    },
+                                    "total": {
+                                        "type": "string",
+                                        "example": "112.80"
+                                    },
+                                    "items": {
+                                        "description": "The survey ID",
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "productId": {
+                                                    "type": "string",
+                                                    "example": "102"
+                                                },
+                                                "quantity": {
+                                                    "type": "int",
+                                                    "example": 10
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/order/delete": {
+            "delete": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Delete order",
+                "description": "Delete order",
+                "operationId": "ea4efed94daa22723e68102751b510e3",
+                "requestBody": {
+                    "description": "Delete order",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "orderId"
+                                ],
+                                "properties": {
+                                    "orderId": {
+                                        "type": "string",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/order/list": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Order List)",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/order/checkDiscount": {
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "checkDiscount order",
+                "description": "checkDiscount order",
+                "operationId": "15fa40d529019859577af207fd142030",
+                "requestBody": {
+                    "description": "checkDiscount order",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "orderId"
+                                ],
+                                "properties": {
+                                    "orderId": {
+                                        "type": "string",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
