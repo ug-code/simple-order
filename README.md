@@ -19,11 +19,15 @@ docker run --rm \
     -w /var/www/html \
     laravelsail/php80-composer:latest \
     composer install --ignore-platform-reqs
+    
+./vendor/bin/sail up -d
+./vendor/bin/sail artisan migrate:fresh --seed
 ```
 
 
+docker sail doc.
 
-
+https://medium.com/@achalaarunalu/setting-up-an-existing-laravel-8-sail-docker-project-on-windows-wsl2-and-ubuntu-20-04-f0def4210258
 
 
 
